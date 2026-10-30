@@ -1,80 +1,46 @@
-/* ==========================================
-   DB SYSTEM
-   HERO SECTION
-========================================== */
+/* Estilos del Componente Figma a WordPress */
 
-/* ------------------------------------------
-   01. DESIGN TOKENS
------------------------------------------- */
-
-:root {
-  --db-color-background: #080808;
-  --db-color-text: #ffffff;
-
-  --db-color-cyan: #009fc4;
-  --db-color-blue: #2563eb;
-  --db-color-purple: #5815f5;
-
-  --db-container-width: 1240px;
-  --db-marquee-duration: 28s;
+.custom-wb-component {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: system-ui, -apple-system, sans-serif;
+    text-align: center;
 }
 
-
-/* ------------------------------------------
-   02. HERO BASE
------------------------------------------- */
-
-.db-hero {
-
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  width: 100vw !important;
-  max-width: 100vw !important;
-
-  left: 50%;
-  transform: translateX(-50%);
-
-  min-height: 100vh;
-  min-height: 100svh;
-
-  margin: 0 !important;
-  padding: 0;
-
-  background: var(--db-color-background);
-  color: var(--db-color-text);
-
-  display: flex;
-  align-items: stretch;
-
-  font-family: inherit;
-
+.component-title {
+    color: #1a1a1a;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
 }
 
-.db-hero *,
-.db-hero *::before,
-.db-hero *::after {
-  box-sizing: border-box;
+.component-description {
+    color: #555555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
 }
 
+.component-btn {
+    background-color: #0073aa;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
-/* ------------------------------------------
-   03. BACKGROUND GLOW
------------------------------------------- */
+.component-btn:hover {
+    background-color: #005177;
+}
 
-.db-hero__glow {
-
-  position: absolute;
-  z-index: 0;
-
-  inset: 0;
-  pointer-events: none;
-
-  background:
-
-    radial-gradient(
-      ellipse 38% 34% at 30% 88%,
-      rgba(0, 57, 255, .65),
-      transparent 100%
-    ),
+.component-btn:active {
+    transform: scale(0.98);
+}
