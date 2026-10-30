@@ -1,46 +1,519 @@
 /* Estilos del Componente Figma a WordPress */
 
-.custom-wb-component {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    font-family: system-ui, -apple-system, sans-serif;
-    text-align: center;
+/* ==========================================
+   DB SYSTEM
+   HERO SECTION
+========================================== */
+
+/* ------------------------------------------
+   01. DESIGN TOKENS
+------------------------------------------ */
+
+:root {
+  --db-color-background: #080808;
+  --db-color-text: #ffffff;
+
+  --db-color-cyan: #009fc4;
+  --db-color-blue: #2563eb;
+  --db-color-purple: #5815f5;
+
+  --db-container-width: 1240px;
+  --db-marquee-duration: 28s;
 }
 
-.component-title {
-    color: #1a1a1a;
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+
+/* ------------------------------------------
+   02. HERO BASE
+------------------------------------------ */
+
+.db-hero {
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: 100vw !important;
+  max-width: 100vw !important;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  margin: 0 !important;
+  padding: 0;
+
+  background: var(--db-color-background);
+  color: var(--db-color-text);
+
+  display: flex;
+  align-items: stretch;
+
+  font-family: inherit;
+
 }
 
-.component-description {
-    color: #555555;
-    font-size: 1rem;
+.db-hero *,
+.db-hero *::before,
+.db-hero *::after {
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------
+   03. BACKGROUND GLOW
+------------------------------------------ */
+
+.db-hero__glow {
+
+  position: absolute;
+  z-index: 0;
+
+  inset: 0;
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 38% 34% at 30% 88%,
+      rgba(0, 57, 255, .65),
+      transparent 100%
+    ),
+
+    radial-gradient(
+      ellipse 35% 34% at 67% 94%,
+      rgba(0, 191, 220, .68),
+      transparent 100%
+    ),
+
+    radial-gradient(
+      ellipse 32% 28% at 51% 78%,
+      rgba(102, 0, 255, .28),
+      transparent 100%
+    );
+
+}
+
+
+/* ------------------------------------------
+   04. MAIN CONTAINER
+------------------------------------------ */
+
+.db-hero__container {
+
+  position: relative;
+  z-index: 1;
+
+  width: min(100% - 48px, var(--db-container-width));
+
+  margin: 0 auto;
+
+  padding: clamp(150px, 32vh, 330px) 0 120px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  gap: 100px;
+
+}
+
+
+/* ------------------------------------------
+   05. HERO CONTENT
+------------------------------------------ */
+
+.db-hero__content {
+  max-width: 850px;
+}
+
+
+/* Title */
+
+.db-hero__title {
+
+  max-width: 850px;
+
+  margin: 0 0 30px;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 400;
+
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+
+}
+
+
+/* Gradient text */
+
+.db-gradient-text {
+
+  background: linear-gradient(
+    105deg,
+    #566ff5 0%,
+    #8137ff 45%,
+    #009fc4 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+}
+
+
+/* Description */
+
+.db-hero__description {
+
+  max-width: 810px;
+
+  margin: 0 0 32px;
+
+  color: #f1f1f1;
+
+  font-size: 19px;
+  font-weight: 400;
+
+  line-height: 1.27;
+
+}
+
+
+/* ------------------------------------------
+   06. CTA BUTTON
+------------------------------------------ */
+
+.db-hero__button {
+
+  width: fit-content;
+  min-height: 58px;
+
+  padding: 0 39px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  border-radius: 100px;
+
+  background: linear-gradient(
+    105deg,
+    #009fc4,
+    #5314f5
+  );
+
+  color: #ffffff;
+
+  font-size: 19px;
+  font-weight: 400;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+
+}
+
+.db-hero__button:hover {
+
+  color: #ffffff;
+
+  filter: brightness(1.12);
+
+  transform: translateY(-2px);
+
+}
+
+.db-hero__arrow {
+
+  font-size: 27px;
+  line-height: 1;
+
+}
+
+
+/* ------------------------------------------
+   07. PARTNERS
+------------------------------------------ */
+
+.db-hero__partners {
+  width: 100%;
+}
+
+.db-hero__partners-label {
+
+  margin: 0 0 22px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 400;
+
+}
+
+
+/* ------------------------------------------
+   08. INFINITE LOGO MARQUEE
+------------------------------------------ */
+
+.db-hero__logos-viewport {
+
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+}
+
+.db-hero__logos-track {
+
+  display: flex;
+
+  width: max-content;
+
+  animation:
+    db-marquee var(--db-marquee-duration) linear infinite;
+
+  will-change: transform;
+
+}
+
+
+/* Logo groups */
+
+.db-hero__logos-group {
+
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 30px;
+
+  padding-right: 30px;
+
+}
+
+
+/* Individual logos */
+
+.db-hero__logos-group .db-logo {
+
+  flex: 0 0 auto;
+
+  color: rgba(255, 255, 255, .72);
+
+  font-size: 23px;
+
+  white-space: nowrap;
+
+  letter-spacing: -.8px;
+
+}
+
+.db-logo strong {
+  font-weight: 800;
+}
+
+
+/* Infinite animation */
+
+@keyframes db-marquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* Pause on hover */
+
+.db-hero__logos-viewport:hover
+.db-hero__logos-track {
+
+  animation-play-state: paused;
+
+}
+
+
+/* ------------------------------------------
+   09. TABLET RESPONSIVE
+------------------------------------------ */
+
+@media (max-width: 768px) {
+
+  .db-hero__container {
+
+    width: calc(100% - 32px);
+
+    padding: 90px 0 32px;
+
+    gap: 48px;
+
+  }
+
+  .db-hero__title {
+
+    font-size: clamp(34px, 8vw, 44px);
+
+    line-height: 1.12;
+    letter-spacing: -1px;
+
+    margin-bottom: 20px;
+
+  }
+
+  .db-hero__description {
+
+    font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+
+    margin-bottom: 24px;
+
+  }
+
+  .db-hero__button {
+
+    min-height: 54px;
+
+    padding: 0 25px;
+
+    font-size: 16px;
+
+  }
+
+  .db-hero__partners-label {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .db-hero__logos-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .db-hero__logos-group .db-logo {
+    font-size: 19px;
+  }
+
 }
 
-.component-btn {
-    background-color: #0073aa;
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+
+/* ------------------------------------------
+   10. SMALL MOBILE
+------------------------------------------ */
+
+@media (max-width: 480px) {
+
+  .db-hero__container {
+
+    width: calc(100% - 32px);
+
+    padding: 80px 0 28px;
+
+    gap: 40px;
+
+  }
+
+  .db-hero__title {
+
+    font-size: 34px;
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
+
+  }
+
+  .db-hero__description {
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+  }
+
+  .db-hero__button {
+
+    min-height: 50px;
+
+    padding: 0 22px;
+
+    font-size: 15px;
+
+  }
+
+  .db-hero__partners-label {
+
+    font-size: 13px;
+
+    margin-bottom: 16px;
+
+  }
+
+  .db-hero__logos-group {
+
+    gap: 20px;
+
+    padding-right: 20px;
+
+  }
+
+  .db-hero__logos-group .db-logo {
+
+    font-size: 17px;
+
+  }
+
 }
 
-.component-btn:hover {
-    background-color: #005177;
-}
 
-.component-btn:active {
-    transform: scale(0.98);
+/* ------------------------------------------
+   11. ACCESSIBILITY
+------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .db-hero__logos-track {
+
+    animation: none;
+
+    transform: none;
+
+  }
+
+  .db-hero__logos-group[aria-hidden="true"] {
+
+    display: none;
+
+  }
+
+  .db-hero__logos-group {
+
+    flex-wrap: wrap;
+
+  }
+
+  .db-hero__button {
+
+    transition: none;
+
+  }
+
 }

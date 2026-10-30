@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previsualización Local Gutenberg</title>
+    <title>prueba web</title>
     
     <!-- Archivo CSS Local -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -14,76 +14,82 @@
     <!-- 🔥 INICIO: COPIAR A GUTENBERG (BLOQUE HTML PERSONALIZADO) -->
     <!-- ======================================================= -->
     
-    <div class="custom-wb-component">
-        <h2 class="component-title">Título del Componente</h2>
-        <p class="component-description">
-            Este es un componente interactivo diseñado desde Figma y optimizado para WordPress Gutenberg.
-        </p>
-        <button id="btn-action" class="component-btn">Hacer clic aquí</button>
+    <section class="db-hero">
+
+  <!-- Background effects -->
+  <div class="db-hero__glow" aria-hidden="true"></div>
+
+  <!-- Main container -->
+  <div class="db-hero__container">
+
+    <!-- Hero content -->
+    <div class="db-hero__content">
+
+      <h1 class="db-hero__title">
+        Más de 25 años acompañando a las
+        empresas líderes a
+        <span class="db-gradient-text">
+          evolucionar su ecosistema digital.
+        </span>
+      </h1>
+
+      <p class="db-hero__description">
+        En DB SYSTEM nos conectamos con los retos reales
+        de tu equipo TI. Combinamos metodologías ágiles,
+        tecnologías inteligentes y las mejores prácticas
+        del mercado para transformar sistemas complejos
+        en experiencias digitales fluidas, seguras y de
+        alto impacto.
+      </p>
+
+      <a href="#contacto" class="db-hero__button">
+        <span>Conversemos sobre tu proyecto</span>
+        <span class="db-hero__arrow" aria-hidden="true">→</span>
+      </a>
+
     </div>
 
-    <!-- Estilos CSS integrados para WordPress -->
-    <style>
-        /* Inserta o sincroniza aquí el contenido de style.css */
-        .custom-wb-component {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 12px;
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            font-family: system-ui, -apple-system, sans-serif;
-            text-align: center;
-        }
+    <!-- Partners -->
+    <div class="db-hero__partners">
 
-        .component-title {
-            color: #1a1a1a;
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
-        }
+      <p class="db-hero__partners-label">
+        Aliados que respaldan nuestros servicios
+      </p>
 
-        .component-description {
-            color: #555555;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
+      <!-- Infinite logo carousel -->
+      <div class="db-hero__logos-viewport" role="region" aria-label="Marcas aliadas">
 
-        .component-btn {
-            background-color: #0073aa; /* Azul estándar WP / Personalizable */
-            color: #ffffff;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-        }
+        <div class="db-hero__logos-track">
 
-        .component-btn:hover {
-            background-color: #005177;
-        }
+          <!-- Original logos -->
+          <div class="db-hero__logos-group">
 
-        .component-btn:active {
-            transform: scale(0.98);
-        }
-    </style>
+            <span class="db-logo">◈ dynatrace</span>
+            <span class="db-logo">▦ Liferay</span>
+            <span class="db-logo">solarwinds ◢</span>
+            <span class="db-logo"><strong>vm</strong>ware</span>
 
-    <!-- JavaScript integrado para WordPress -->
-    <script>
-        // Inserta o sincroniza aquí el contenido de script.js
-        document.addEventListener('DOMContentLoaded', function () {
-            const btn = document.getElementById('btn-action');
-            if (btn) {
-                btn.addEventListener('click', function () {
-                    alert('¡Funciona correctamente en WordPress Gutenberg!');
-                });
-            }
-        });
-    </script>
+          </div>
 
+          <!-- Duplicate logos for infinite movement -->
+          <div class="db-hero__logos-group" aria-hidden="true">
+
+            <span class="db-logo">◈ dynatrace</span>
+            <span class="db-logo">▦ Liferay</span>
+            <span class="db-logo">solarwinds ◢</span>
+            <span class="db-logo"><strong>vm</strong>ware</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
     <!-- ======================================================= -->
     <!-- 🔥 FIN: COPIAR A GUTENBERG -->
     <!-- ======================================================= -->
